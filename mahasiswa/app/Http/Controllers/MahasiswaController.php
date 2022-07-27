@@ -12,7 +12,17 @@ class MahasiswaController extends Controller
         $data = Mahasiswa::all();
         return ApiFormatter::createApi(200, "success", $data);
     }
-    public function store() {
+    public function store(Request $request) {
+        $data = new Mahasiswa();
+        $data->nim = $request->nim;
+        $data->nama = $request->nama;
+        $data->no_hp = $request->no_hp;
+        $data->jenis_kelamin = $request->jenis_kelamin;
+        if($data->save()) {
+            return ApiFormatter::createApi(200, "success", $data);
+        } else {
+            return ApiFormatter::createApi(400, "failed");
+        }
 
     }
 }

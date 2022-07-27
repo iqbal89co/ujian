@@ -19,4 +19,4 @@ Route::get('/', function () {
 });
 
 Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
-Route::get('/mahasiswa/store'. [MahasiswaController::class, 'store']);
+Route::post('/mahasiswa/store', [MahasiswaController::class, 'store']);
